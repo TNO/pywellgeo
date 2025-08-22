@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# --- REQUIRED / CORE METADATA ---
+name = "pywellgeo" 
+version = "0.0.1"                                
+description = "Different well parametrizations used in pywellfast and pythermonomics"
+readme = "README.md"                              
+requires-python = ">=3.11"                       
+license = { file = "LICENSE" }           
+authors = [{ name = "Stephan de Hoop", email = "stephan.dehoop@tno.nl" }]
+# maintainers = [{ name = "Stephan de Hoop", email = "stephan.dehoop@tno.nl" }] 
+
+# --- RECOMMENDED METADATA (improves discovery on PyPI) ---
+keywords = ["well", "geothermal", "reservoir", "simulation", "engineering"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",     
+  "Operating System :: OS Independent",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+]
+
+# --- Runtime dependencies (was `install_requires` minus pytest) ---
+dependencies = [
+  "numpy",
+  "pandas",
+  "pydantic",
+  "pyyaml",
+  "matplotlib",
+  "scipy",
+]
+
+[project.optional-dependencies]
+# Test/development extras (pytest should not be a runtime dependency)
+tests = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/TNO/pywellgeo"
+Repository = "https://github.com/TNO/pywellgeo"
+# Documentation = "https://your-docs-url"
+Issues = "https://github.com/TNO/pywellgeo/issues"
+
+# --- Setuptools (src-layout) ---
+[tool.setuptools]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# --- Tooling configs (migrated from setup.cfg) ---
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
