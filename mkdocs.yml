@@ -1,0 +1,105 @@
+site_name: pywellgeo
+repo_url: https://github.com/TNO/pywellgeo
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.expand
+    - navigation.footer
+    - navigation.sections
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      primary: indigo
+      accent: blue
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: teal
+      accent: lime
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mike
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_source: false
+            show_bases: true
+            show_root_toc_entry: false
+            show_root_heading: true
+            show_root_full_path: true
+            show_root_members_full_path: false
+            heading_level: 2
+            members_order: source
+            show_symbol_type_heading: true
+            separate_signature: true
+            show_signature_annotations: True
+          inventories:
+            - https://docs.python.org/3/objects.inv
+            - https://docs.pydantic.dev/latest/objects.inv
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascript/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+# extra:
+#   version:
+#     provider: mike
+
+watch:
+  - src
+
+nav:
+  - Home: index.md
+  - API Reference:
+      - Transformations:
+          - AzimDip: api/transformations/azimdip.md
+          - CoordinateTransform: api/transformations/coordinate_transformation.md
+      - Well Data:
+          - Constants: api/well_data/constants.md
+          - WaterProperties: api/well_data/water_properties.md
+          - DC1DWell: api/well_data/dc1d_well.md
+      - Well Tree:
+          - WellTreeTNO: api/well_tree/well_tree_tno.md
+          - WellTreeAzimDip: api/well_tree/well_tree_azim_dip.md
+      - Well Trajectory:
+          - Trajectory: api/well_trajectory/trajectory.md
+          - TrajectoryBase: api/well_trajectory/trajectory_base.md
+          - TrajectoryDc1d: api/well_trajectory/trajectory_dc1d.md
+          - TrajectoryDetailedTNO: api/well_trajectory/trajectory_detailed_tno.md
+          - TrajectoryFactory: api/well_trajectory/trajectory_factory.md
+          - TrajectoryXyzGeneric: api/well_trajectory/trajectory_xyz_generic.md
