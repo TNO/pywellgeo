@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 # --- REQUIRED / CORE METADATA ---
 name = "pywellgeo" 
-version = "0.0.2"                                
+version = "0.1.0"                                
 description = "Different well parametrizations used in pywellfast and pythermonomics"
 readme = "README.md"                              
 requires-python = ">=3.11"                       
