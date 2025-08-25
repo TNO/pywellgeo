@@ -39,6 +39,12 @@ dependencies = [
 [project.optional-dependencies]
 # Test/development extras (pytest should not be a runtime dependency)
 tests = ["pytest"]
+docs = [
+  "mkdocs",
+  "mkdocstrings[python]",
+  "mkdocs-material",
+  "mike",
+]
 
 [project.urls]
 Homepage = "https://github.com/TNO/pywellgeo"
